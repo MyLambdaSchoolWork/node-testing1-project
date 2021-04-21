@@ -85,7 +85,6 @@ describe('[Exercise 5] Seasons', () => {
     expect(callSeasonNTimes(2)).toBe('fall')
   })
   test('[11] the THIRD call of seasons.next returns "winter"', () => {
-    callSeasonNTimes(2)
     expect(callSeasonNTimes(3)).toBe('winter')
   })
   test('[12] the FOURTH call of seasons.next returns "spring"', () => {
