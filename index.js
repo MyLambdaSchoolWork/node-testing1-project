@@ -118,6 +118,8 @@ class Car {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
+    this.tankSize = tankSize
+    this.mpg = mpg
   }
 
   /**
@@ -135,6 +137,7 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    this.tank -= distance/this.mpg
     return this.odometer += distance
   }
 
