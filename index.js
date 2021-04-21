@@ -103,8 +103,7 @@ class Seasons {
    */
   next() {
     // ✨ implement
-    this.currentSeason++
-    return this.seasons[this.currentSeason % 4]
+    return this.seasons[++this.currentSeason % 4]
   }
 }
 
