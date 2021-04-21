@@ -58,7 +58,12 @@ describe('[Exercise 4] Counter', () => {
     counter.countDown()
     expect(counter.countDown()).toBe(initial - 1)
   })
-  test.todo('[8] the count eventually reaches zero but does not go below zero')
+  // test.todo('[8] the count eventually reaches zero but does not go below zero')
+  test('[8] the count eventually reaches zero but does not go below zero', () => {
+    while(counter.countDown() > 1){} // eslint-disable-line
+    expect(counter.countDown()).toBe(0)
+    expect(counter.countDown()).toBe(0)
+  }, 1000)
 })
 
 describe('[Exercise 5] Seasons', () => {
