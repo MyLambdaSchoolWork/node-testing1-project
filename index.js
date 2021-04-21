@@ -135,6 +135,7 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    return this.odometer += distance
   }
 
   /**
