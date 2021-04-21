@@ -71,12 +71,33 @@ describe('[Exercise 5] Seasons', () => {
   beforeEach(() => {
     seasons = new utils.Seasons() // each test must start with fresh seasons
   })
-  test.todo('[9] the FIRST call of seasons.next returns "summer"')
-  test.todo('[10] the SECOND call of seasons.next returns "fall"')
-  test.todo('[11] the THIRD call of seasons.next returns "winter"')
-  test.todo('[12] the FOURTH call of seasons.next returns "spring"')
-  test.todo('[13] the FIFTH call of seasons.next returns again "summer"')
-  test.todo('[14] the 40th call of seasons.next returns "spring"')
+
+  function callSeasonNTimes(n){
+    for(let i = 1; i < n; i++) // starts at 1 because the return calls .next()
+      seasons.next()
+    return seasons.next()
+  }
+
+  test('[9] the FIRST call of seasons.next returns "summer"', () => {
+    expect(callSeasonNTimes(1)).toBe('summer')
+  })
+  test('[10] the SECOND call of seasons.next returns "fall"', () => {
+    expect(callSeasonNTimes(2)).toBe('fall')
+  })
+  test('[11] the THIRD call of seasons.next returns "winter"', () => {
+    callSeasonNTimes(2)
+    expect(callSeasonNTimes(3)).toBe('winter')
+  })
+  test('[12] the FOURTH call of seasons.next returns "spring"', () => {
+    expect(callSeasonNTimes(4)).toBe('spring')
+  })
+  test('[13] the FIFTH call of seasons.next returns again "summer"', () => {
+
+    expect(callSeasonNTimes(5)).toBe('summer')
+  })
+  test('[14] the 40th call of seasons.next returns "spring"', () => {
+    expect(callSeasonNTimes(40)).toBe('spring')
+  })
 })
 
 describe('[Exercise 6] Car', () => {
