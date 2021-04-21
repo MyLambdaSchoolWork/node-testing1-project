@@ -53,7 +53,11 @@ describe('[Exercise 4] Counter', () => {
   test('[6] the FIRST CALL of counter.countDown returns the initial count', () => {
     expect(counter.countDown()).toBe(initial)
   })
-  test.todo('[7] the SECOND CALL of counter.countDown returns the initial count minus one')
+  // test.todo('[7] the SECOND CALL of counter.countDown returns the initial count minus one')
+  test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {
+    counter.countDown()
+    expect(counter.countDown()).toBe(initial - 1)
+  })
   test.todo('[8] the count eventually reaches zero but does not go below zero')
 })
 
