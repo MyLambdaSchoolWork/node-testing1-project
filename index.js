@@ -73,7 +73,9 @@ class Counter {
    */
   countDown() {
     // ✨ implement
-    return this.position--
+    return this.position > 0
+      ? this.position--
+      : 0
   }
 }
 
