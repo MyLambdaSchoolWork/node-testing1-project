@@ -122,11 +122,15 @@ describe('[Exercise 6] Car', () => {
   })
   test('[17.5] adding fuel works', () => {
     car.drive(tankSize*mpg/2)
-    car.refuel(5)
+    expect(car.refuel(5)).toBe((tankSize/2 + 5)*mpg)
     expect(car.tank).toBe(tankSize/2 + 5)
   })
-  test('[18] adding fuel to a full tank has no effect', () => {
-    expect('placeholder').toBe(false)
+  test('[18] can\'t overfill tank', () => {
+    expect(car.refuel(10)).toBe(tankSize*mpg)
+    expect(car.tank).toBe(tankSize)
+    car.drive(10)
+    expect(car.refuel(10000)).toBe(tankSize*mpg)
+    expect(car.tank).toBe(tankSize)
   })
 })
 
