@@ -114,13 +114,13 @@ describe('[Exercise 6] Car', () => {
     car.drive(10)
     expect(car.tank).toBe(tankSize - 10/mpg)
   })
-  test('[17] can\'t drive more than tank * mpg', () => {
+  test('[16.5] can\'t drive more than tank * mpg', () => {
     car.drive(tankSize*mpg/2)
     car.drive(tankSize*mpg)
     expect(car.tank).toBe(0)
     expect(car.odometer).toBe(tankSize*mpg)
   })
-  test('[17.5] adding fuel works', () => {
+  test('[17] adding fuel works', () => {
     car.drive(tankSize*mpg/2)
     expect(car.refuel(5)).toBe((tankSize/2 + 5)*mpg)
     expect(car.tank).toBe(tankSize/2 + 5)
@@ -135,8 +135,16 @@ describe('[Exercise 6] Car', () => {
 })
 
 describe('[Exercise 7] isEvenNumberAsync', () => {
-  test.todo('[19] resolves true if passed an even number')
-  test.todo('[20] resolves false if passed an odd number')
-  test.todo('[21] rejects an error with the message "number must be a number" if passed a non-number type')
-  test.todo('[22] rejects an error with the message "number must be a number" if passed NaN')
+  test('[19] resolves true if passed an even number', async () => {
+    expect(await utils.isEvenNumberAsync(10)).toBe(true)
+  })
+  test('[20] resolves false if passed an odd number', async () => {
+    expect(await utils.isEvenNumberAsync(9)).toBe(false)
+  })
+  test('[21] rejects an error with the message "x is not a number" if passed a non-number type', async () => {
+    expect(await utils.isEvenNumberAsync([]).catch(err => err)).toBe('object is not a number')
+  })
+  test('[22] rejects an error with the message "NaN is not a number" if passed NaN', async () => {
+    expect(await utils.isEvenNumberAsync(NaN).catch(err => err)).toBe('NaN is not a number')
+  })
 })

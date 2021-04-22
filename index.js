@@ -184,8 +184,22 @@ class Car {
  *    // error.message is "number must be a number"
  * })
  */
-function isEvenNumberAsync(number) {
+function isEvenNumberAsync(num) {
   // ✨ implement
+  // sync
+  // if(isNaN(num))
+  //   return 'NaN is not a number'
+  // if(typeof(num) !== 'number')
+  //   return `${typeof(num)} is not a number`
+  // return Promise.resolenum % 2 === 0
+  return new Promise((resolve, reject) => {
+    if(isNaN(num))
+      reject('NaN is not a number')
+    if(typeof(num) !== 'number')
+      reject(`${typeof(num)} is not a number`)
+    resolve(num % 2 === 0)
+  })
+  
 }
 
 module.exports = {
