@@ -193,10 +193,14 @@ function isEvenNumberAsync(num) {
   //   return `${typeof(num)} is not a number`
   // return Promise.resolenum % 2 === 0
   return new Promise((resolve, reject) => {
-    if(isNaN(num))
+    if(isNaN(num)){
       reject('NaN is not a number')
-    if(typeof(num) !== 'number')
+      return
+    }
+    if(typeof(num) !== 'number'){
       reject(`${typeof(num)} is not a number`)
+      return
+    }
     resolve(num % 2 === 0)
   })
   
