@@ -114,8 +114,16 @@ describe('[Exercise 6] Car', () => {
     car.drive(10)
     expect(car.tank).toBe(tankSize - 10/mpg)
   })
-  test('[17] refueling allows to keep driving', () => {
-    expect('placeholder').toBe(false)
+  test('[17] can\'t drive more than tank * mpg', () => {
+    car.drive(tankSize*mpg/2)
+    car.drive(tankSize*mpg)
+    expect(car.tank).toBe(0)
+    expect(car.odometer).toBe(tankSize*mpg)
+  })
+  test('[17.5] adding fuel works', () => {
+    car.drive(tankSize*mpg/2)
+    car.refuel(5)
+    expect(car.tank).toBe(tankSize/2 + 5)
   })
   test('[18] adding fuel to a full tank has no effect', () => {
     expect('placeholder').toBe(false)

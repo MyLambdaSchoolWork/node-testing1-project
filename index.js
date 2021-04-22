@@ -137,6 +137,9 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    if(distance > this.tank * this.mpg)
+      distance = this.tank * this.mpg
+
     this.tank -= distance/this.mpg
     return this.odometer += distance
   }
@@ -154,6 +157,7 @@ class Car {
    */
   refuel(gallons) {
     // ✨ implement
+    return this.tank += gallons
   }
 }
 
